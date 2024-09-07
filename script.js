@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     // this function will get all the stocks from db
     function fetchStocks() {
-        fetch('http://127.0.0.1:5000/stocks')
+        fetch('https://stock-backend-fdq7.onrender.com/stocks')
             .then(response => response.json())
             .then(data => {
                 console.log('Fetched stocks:', data);
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     // this will create a new stock in the db
     function createStock(stock) {
-        fetch('http://127.0.0.1:5000/stocks', {
+        fetch('https://stock-backend-fdq7.onrender.com/stocks', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // this will edit a stock info
     function updateStock(id, updatedStock) {
-        fetch(`http://127.0.0.1:5000/stocks/${id}`, {
+        fetch(`https://stock-backend-fdq7.onrender.com/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
  
     //this will delete a stock
     function deleteStock(id) {
-        fetch(`http://127.0.0.1:5000/stocks/${id}`, {
+        fetch(`https://stock-backend-fdq7.onrender.com/${id}`, {
             method: 'DELETE'
         })
             .then(response => {
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     window.editStock = function (id) {
-        fetch(`http://127.0.0.1:5000/stocks/${id}`)
+        fetch(`https://stock-backend-fdq7.onrender.com/stocks/${id}`)
             .then(response => response.json())
             .then(stock => {
                 document.getElementById('name').value = stock.name;
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.deleteStock = function(id) {
         if (confirm('Are you sure you want to delete this stock?')) {
-            fetch(`http://127.0.0.1:5000/stocks/${id}`, {
+            fetch(`https://stock-backend-fdq7.onrender.com/stocks/${id}`, {
                 method: 'DELETE'
             })
                 .then(response => {
